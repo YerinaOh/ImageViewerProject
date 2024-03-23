@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04A997EC2BAEBDFF008086F7 /* ImageViewerProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A997EB2BAEBDFF008086F7 /* ImageViewerProjectApp.swift */; };
-		04A997EE2BAEBDFF008086F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A997ED2BAEBDFF008086F7 /* ContentView.swift */; };
+		04A997EE2BAEBDFF008086F7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A997ED2BAEBDFF008086F7 /* MainView.swift */; };
 		04A997F02BAEBE01008086F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A997EF2BAEBE01008086F7 /* Assets.xcassets */; };
 		04A997F32BAEBE01008086F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A997F22BAEBE01008086F7 /* Preview Assets.xcassets */; };
 		04A997FD2BAEBE02008086F7 /* ImageViewerProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A997FC2BAEBE02008086F7 /* ImageViewerProjectTests.swift */; };
@@ -17,6 +17,13 @@
 		04A998162BAEC704008086F7 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998152BAEC704008086F7 /* PhotoInfo.swift */; };
 		04A9981B2BAECA6F008086F7 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9981A2BAECA6F008086F7 /* ImageCell.swift */; };
 		04A9981D2BAEDCAD008086F7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9981C2BAEDCAD008086F7 /* DetailView.swift */; };
+		04A998212BAEE468008086F7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998202BAEE468008086F7 /* MainViewModel.swift */; };
+		04A998232BAEFD15008086F7 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998222BAEFD15008086F7 /* DIContainer.swift */; };
+		04A998262BAF08B2008086F7 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998252BAF08B2008086F7 /* ImageLoader.swift */; };
+		04A998292BAF0C21008086F7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998282BAF0C21008086F7 /* NetworkError.swift */; };
+		04A9982B2BAF1588008086F7 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982A2BAF1588008086F7 /* APILoader.swift */; };
+		04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */; };
+		04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,7 @@
 /* Begin PBXFileReference section */
 		04A997E82BAEBDFF008086F7 /* ImageViewerProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewerProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A997EB2BAEBDFF008086F7 /* ImageViewerProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerProjectApp.swift; sourceTree = "<group>"; };
-		04A997ED2BAEBDFF008086F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04A997ED2BAEBDFF008086F7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		04A997EF2BAEBE01008086F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A997F22BAEBE01008086F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04A997F82BAEBE02008086F7 /* ImageViewerProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageViewerProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +57,14 @@
 		04A998152BAEC704008086F7 /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		04A9981A2BAECA6F008086F7 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		04A9981C2BAEDCAD008086F7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		04A998202BAEE468008086F7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		04A998222BAEFD15008086F7 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		04A998252BAF08B2008086F7 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		04A998282BAF0C21008086F7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		04A9982A2BAF1588008086F7 /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
+		04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImpl.swift; sourceTree = "<group>"; };
+		04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIRepository.swift; sourceTree = "<group>"; };
+		04A998332BAF22AE008086F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +115,8 @@
 		04A997EA2BAEBDFF008086F7 /* ImageViewerProject */ = {
 			isa = PBXGroup;
 			children = (
+				04A998332BAF22AE008086F7 /* Info.plist */,
+				04A998242BAF08A8008086F7 /* Data */,
 				04A998192BAECA5A008086F7 /* Domain */,
 				04A998182BAECA42008086F7 /* App */,
 				04A998172BAECA34008086F7 /* Presenter */,
@@ -137,9 +154,8 @@
 		04A998172BAECA34008086F7 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				04A997ED2BAEBDFF008086F7 /* ContentView.swift */,
-				04A9981C2BAEDCAD008086F7 /* DetailView.swift */,
-				04A9981A2BAECA6F008086F7 /* ImageCell.swift */,
+				04A9981E2BAEE44B008086F7 /* ViewModel */,
+				04A9981F2BAEE451008086F7 /* View */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -148,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				04A997EB2BAEBDFF008086F7 /* ImageViewerProjectApp.swift */,
+				04A998222BAEFD15008086F7 /* DIContainer.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -155,9 +172,71 @@
 		04A998192BAECA5A008086F7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				04A9982C2BAF1D49008086F7 /* Interface */,
 				04A998152BAEC704008086F7 /* PhotoInfo.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		04A9981E2BAEE44B008086F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04A998202BAEE468008086F7 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04A9981F2BAEE451008086F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04A998322BAF1FDB008086F7 /* Cell */,
+				04A997ED2BAEBDFF008086F7 /* MainView.swift */,
+				04A9981C2BAEDCAD008086F7 /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04A998242BAF08A8008086F7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04A9982F2BAF1D88008086F7 /* Repository */,
+				04A998272BAF0C10008086F7 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		04A998272BAF0C10008086F7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				04A998282BAF0C21008086F7 /* NetworkError.swift */,
+				04A998252BAF08B2008086F7 /* ImageLoader.swift */,
+				04A9982A2BAF1588008086F7 /* APILoader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		04A9982C2BAF1D49008086F7 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		04A9982F2BAF1D88008086F7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		04A998322BAF1FDB008086F7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04A9981A2BAECA6F008086F7 /* ImageCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +369,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A998232BAEFD15008086F7 /* DIContainer.swift in Sources */,
 				04A998162BAEC704008086F7 /* PhotoInfo.swift in Sources */,
+				04A998262BAF08B2008086F7 /* ImageLoader.swift in Sources */,
 				04A9981B2BAECA6F008086F7 /* ImageCell.swift in Sources */,
-				04A997EE2BAEBDFF008086F7 /* ContentView.swift in Sources */,
+				04A998292BAF0C21008086F7 /* NetworkError.swift in Sources */,
+				04A997EE2BAEBDFF008086F7 /* MainView.swift in Sources */,
+				04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */,
 				04A9981D2BAEDCAD008086F7 /* DetailView.swift in Sources */,
+				04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */,
+				04A9982B2BAF1588008086F7 /* APILoader.swift in Sources */,
 				04A997EC2BAEBDFF008086F7 /* ImageViewerProjectApp.swift in Sources */,
+				04A998212BAEE468008086F7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +541,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ImageViewerProject/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageViewerProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -483,6 +570,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ImageViewerProject/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageViewerProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

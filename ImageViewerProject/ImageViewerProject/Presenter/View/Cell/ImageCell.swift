@@ -7,14 +7,16 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct ImageCell: View {
+    @StateObject private var imageLoader = ImageLoader()
     var image: PhotoInfo
     
     var body: some View {
         NavigationLink(destination: DetailView(image: image)) {
             VStack(alignment: .leading) {
-                Image(image.url)
+                Image(uiImage: imageLoader.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 100, height: 100)
@@ -25,6 +27,8 @@ struct ImageCell: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .padding(.top, 4)
+            }.onAppear {
+                imageLoader.loadImage(fromURL: image.download_url)
             }
         }
     }

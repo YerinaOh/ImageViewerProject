@@ -11,7 +11,7 @@ import SwiftUI
 struct ImageViewerProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DIContainer.shared.getMainView()
         }
     }
 }
