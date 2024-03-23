@@ -24,6 +24,7 @@
 		04A9982B2BAF1588008086F7 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982A2BAF1588008086F7 /* APILoader.swift */; };
 		04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */; };
 		04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */; };
+		04ED61962BAF2D9100CB64F5 /* ImageAPITestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImpl.swift; sourceTree = "<group>"; };
 		04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIRepository.swift; sourceTree = "<group>"; };
 		04A998332BAF22AE008086F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPITestRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		04A997FB2BAEBE02008086F7 /* ImageViewerProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				04ED61942BAF2D7C00CB64F5 /* Repository */,
 				04A997FC2BAEBE02008086F7 /* ImageViewerProjectTests.swift */,
 			);
 			path = ImageViewerProjectTests;
@@ -237,6 +240,14 @@
 				04A9981A2BAECA6F008086F7 /* ImageCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		04ED61942BAF2D7C00CB64F5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ED61962BAF2D9100CB64F5 /* ImageAPITestRepository.swift in Sources */,
 				04A997FD2BAEBE02008086F7 /* ImageViewerProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

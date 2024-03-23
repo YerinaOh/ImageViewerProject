@@ -13,7 +13,7 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            Image(image.url)
+            Image(image.getImageURL(isFullSize: true))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity, maxHeight: 300)

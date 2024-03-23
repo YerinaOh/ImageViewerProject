@@ -28,7 +28,7 @@ struct ImageCell: View {
                     .foregroundColor(.secondary)
                     .padding(.top, 4)
             }.onAppear {
-                imageLoader.loadImage(fromURL: image.download_url)
+                imageLoader.loadImage(fromURL: image.getImageURL())
             }
         }
     }

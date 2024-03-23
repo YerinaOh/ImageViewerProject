@@ -11,7 +11,7 @@ import UIKit
 
 class ImageLoader: ObservableObject {
     
-    @Published var image: UIImage = UIImage()
+    @Published var image: UIImage = UIImage(named: "placeholder")!
     private var cancellable: AnyCancellable?
     
     func loadImage(fromURL: String) {

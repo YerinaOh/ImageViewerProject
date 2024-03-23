@@ -43,7 +43,9 @@ struct ImageList: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible())]) {
+            let item = GridItem(.flexible(), spacing: 6, alignment: nil)
+            let columns = Array(repeating: item, count: 3)
+            LazyVGrid(columns: columns) {
                 ForEach(images, id: \.id) { image in
                     ImageCell(image: image)
                 }
