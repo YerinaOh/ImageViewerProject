@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 struct DetailView: View {
+    @StateObject private var imageLoader = ImageLoader()
     var image: PhotoInfo
     
     var body: some View {
         VStack {
-            Image(image.getImageURL(isFullSize: true))
+            Image(uiImage: imageLoader.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity, maxHeight: 300)
@@ -23,6 +24,8 @@ struct DetailView: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .padding()
+        }.onAppear {
+            imageLoader.loadImage(fromURL: image.getImageURL(isFullSize: true))
         }
     }
 }

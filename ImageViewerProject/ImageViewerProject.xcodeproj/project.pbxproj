@@ -25,6 +25,7 @@
 		04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */; };
 		04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */; };
 		04ED61962BAF2D9100CB64F5 /* ImageAPITestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */; };
+		04ED61982BAF30BE00CB64F5 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED61972BAF30BE00CB64F5 /* ImageCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIRepository.swift; sourceTree = "<group>"; };
 		04A998332BAF22AE008086F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPITestRepository.swift; sourceTree = "<group>"; };
+		04ED61972BAF30BE00CB64F5 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				04A997EB2BAEBDFF008086F7 /* ImageViewerProjectApp.swift */,
 				04A998222BAEFD15008086F7 /* DIContainer.swift */,
+				04ED61972BAF30BE00CB64F5 /* ImageCacheManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				04A998262BAF08B2008086F7 /* ImageLoader.swift in Sources */,
 				04A9981B2BAECA6F008086F7 /* ImageCell.swift in Sources */,
 				04A998292BAF0C21008086F7 /* NetworkError.swift in Sources */,
+				04ED61982BAF30BE00CB64F5 /* ImageCacheManager.swift in Sources */,
 				04A997EE2BAEBDFF008086F7 /* MainView.swift in Sources */,
 				04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */,
 				04A9981D2BAEDCAD008086F7 /* DetailView.swift in Sources */,

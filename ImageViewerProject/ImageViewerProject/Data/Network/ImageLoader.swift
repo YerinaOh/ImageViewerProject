@@ -20,6 +20,11 @@ class ImageLoader: ObservableObject {
             return
         }
         
+        if let cachedImage = ImageCacheManager.shared.cache.object(forKey: fromURL as NSString) {
+            image = cachedImage
+            return
+        }
+        
         // 기존의 로딩 작업 취소
         cancellable?.cancel()
         
@@ -29,7 +34,10 @@ class ImageLoader: ObservableObject {
             .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] loadedImage in
-                self?.image = loadedImage ?? UIImage()
+                if let image = loadedImage {
+                    ImageCacheManager.shared.cache.setObject(image, forKey: fromURL as NSString)
+                    self?.image = image
+                }
             }
     }
 }
