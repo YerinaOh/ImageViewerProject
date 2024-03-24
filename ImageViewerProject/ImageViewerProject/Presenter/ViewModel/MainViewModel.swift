@@ -16,8 +16,8 @@ class MainViewModel: ObservableObject {
     private let errorSubject = PassthroughSubject<NetworkError, Never>() // 에러 응답
     // values
     private var bag = Set<AnyCancellable>() // dispose bag
-    private var images: [PhotoInfo] = [] // api loaded image list
-    private var page: Int = 1 // 현재까지 load된 page수
+    var images: [PhotoInfo] = [] // api loaded image list
+    var page: Int = 1 // 현재까지 load된 page수
     
     // binding datas
     @Published var displayedImages: [PhotoInfo] = [] // view에서 노출할 image data list

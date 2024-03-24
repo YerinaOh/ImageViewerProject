@@ -16,7 +16,7 @@ struct PhotoInfo: Codable {
     /// image url 경로
     /// - Parameter isFullSize: 메모리 절약을 위해 list 는 thumbnail용 사이즈를 return 하기위함.
     /// - Returns: 이미지 경로
-    func getImageURL(isFullSize: Bool = false) -> String {
+    public func getImageURL(isFullSize: Bool = false) -> String {
         if isFullSize {
             return download_url
         } else {
