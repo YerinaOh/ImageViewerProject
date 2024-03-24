@@ -30,6 +30,7 @@
 		04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */; };
 		04ED61962BAF2D9100CB64F5 /* ImageAPITestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */; };
 		04ED61982BAF30BE00CB64F5 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED61972BAF30BE00CB64F5 /* ImageCacheManager.swift */; };
+		04F579A32BB08118002A070C /* .swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 04F579A22BB08118002A070C /* .swiftlint */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		04A998332BAF22AE008086F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPITestRepository.swift; sourceTree = "<group>"; };
 		04ED61972BAF30BE00CB64F5 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		04F579A22BB08118002A070C /* .swiftlint */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		04A997DF2BAEBDFE008086F7 = {
 			isa = PBXGroup;
 			children = (
+				04F579A22BB08118002A070C /* .swiftlint */,
 				04A997EA2BAEBDFF008086F7 /* ImageViewerProject */,
 				04A997FB2BAEBE02008086F7 /* ImageViewerProjectTests */,
 				04A997E92BAEBDFF008086F7 /* Products */,
@@ -241,6 +244,7 @@
 				04A997E42BAEBDFE008086F7 /* Sources */,
 				04A997E52BAEBDFE008086F7 /* Frameworks */,
 				04A997E62BAEBDFE008086F7 /* Resources */,
+				04F579A12BB080BE002A070C /* SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -312,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F579A32BB08118002A070C /* .swiftlint in Resources */,
 				04A997F32BAEBE01008086F7 /* Preview Assets.xcassets in Resources */,
 				04A997F02BAEBE01008086F7 /* Assets.xcassets in Resources */,
 				049A17F62BB0711400554927 /* Stub.bundle in Resources */,
@@ -327,6 +332,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04F579A12BB080BE002A070C /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04A997E42BAEBDFE008086F7 /* Sources */ = {
