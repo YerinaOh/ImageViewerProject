@@ -70,6 +70,15 @@ extension MainViewModel {
             getList()
         }
     }
+    
+    /// 자동완성 keyword를 get하는 로직
+    /// - Returns: 자동완성 keyword
+    public func getAutoCompleteKeyword() -> [String] {
+        if searchText.isEmpty {
+            return []
+        }
+        return Array(Set(displayedImages.map { $0.author } )).sorted()
+    }
 }
 
 // MARK: Binding

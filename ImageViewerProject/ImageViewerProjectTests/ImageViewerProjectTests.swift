@@ -89,4 +89,18 @@ class MainViewModelTests: XCTestCase {
             })
             .store(in: &cancellables)
     }
+    
+    /// 자동완성 keyword콜백 키워드
+    func testGetAutoCompleteKeyword() {
+        
+        // Given
+        viewModel.displayedImages = viewModel.images
+        viewModel.searchText = "Alejandro"
+        
+        // When
+        let keywords = viewModel.getAutoCompleteKeyword()
+        
+        // Then
+        XCTAssertFalse(keywords.isEmpty)
+    }
 }
