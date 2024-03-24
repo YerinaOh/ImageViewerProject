@@ -10,7 +10,7 @@ import UIKit
 
 // Mission: Memory Cache
 /// image cache singleton manager
-class ImageCacheManager {
+final class ImageCacheManager {
     static let shared = ImageCacheManager()
     var cache = NSCache<NSString, UIImage>()
 

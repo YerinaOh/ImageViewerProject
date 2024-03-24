@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 /// Server Util: image를 request하고 image 변화를 cell에 binding 하기 위한 observedObject
-class ImageLoader: ObservableObject {
+final class ImageLoader: ObservableObject {
     
     @Published var image: UIImage = UIImage(named: "placeholder")!
     private var cancellable: AnyCancellable?

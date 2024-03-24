@@ -13,7 +13,7 @@ final class DIContainer {
     
     /// main view di 적용
     /// - Returns: mainview
-    func getMainView() -> MainView {
+    public func getMainView() -> MainView {
         return MainView(viewModel: MainViewModel())
     }
 }

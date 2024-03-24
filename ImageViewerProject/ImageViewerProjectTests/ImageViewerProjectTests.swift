@@ -6,31 +6,87 @@
 //
 
 import XCTest
+import Combine
 @testable import ImageViewerProject
 
-final class ImageViewerProjectTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class MainViewModelTests: XCTestCase {
+    var viewModel: MainViewModel!
+    var cancellables = Set<AnyCancellable>()
+    
+    override func setUp() {
+        super.setUp()
+        viewModel = MainViewModel()
+        viewModel.images = ImageAPITestRepository.fetchLocalData()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewModel = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    /// search text 가 empty일 때 전체 images 를 가져오는지 test
+    func testFetchImagesWithEmptySearchText() {
+        // Given
+        let searchText = ""
+        let expectedImages = viewModel.images
+        
+        // When
+        viewModel.fetchImages(for: searchText)
+        
+        // Then
+        XCTAssertEqual(viewModel.displayedImages.count, expectedImages.count)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    /// search text 가 Alejandro일 때 images 를 가져오는지 test
+    func testFetchImagesWithNonEmptySearchText() {
+        // Given
+        let searchText = "Alejandro"
+        let expectedImages = viewModel.images.filter { $0.author.contains(searchText) }
+        
+        // When
+        viewModel.fetchImages(for: searchText)
+        
+        // Then
+        XCTAssertEqual(viewModel.displayedImages.count, expectedImages.count)
     }
-
+    
+    /// 마지막 id일 때, page 가 next page로 넘어가는지 test
+    func testPagingFetchWithLastId() {
+        // Given
+        viewModel.displayedImages = viewModel.images
+        let lastId = viewModel.displayedImages.last?.id ?? ""
+        let initialPage = viewModel.page
+        
+        // When
+        viewModel.pagingFetch(id: lastId)
+        
+        // Then
+        XCTAssertEqual(viewModel.page, initialPage + 1)
+    }
+    
+    /// 기타 id일 때, page 가 next page로 넘어가지 않고 남아있는지 확인
+    func testPagingFetchWithNonLastId() {
+        // Given
+        viewModel.displayedImages = viewModel.images
+        let nonLastId = "3"
+        let initialPage = viewModel.page
+        
+        // When
+        viewModel.pagingFetch(id: nonLastId)
+        
+        // Then
+        XCTAssertEqual(viewModel.page, initialPage)
+    }
+    
+    /// bundle data 를 initialize하는 method
+    func testFetchDataParsing() {
+        ImageAPITestRepository.fetchData(page: 0)
+            .compactMap { $0 as? [ImageViewerProject.PhotoInfo] }
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }, receiveValue: { photoInfo in
+                XCTAssertFalse(photoInfo.isEmpty)
+            })
+            .store(in: &cancellables)
+    }
 }
