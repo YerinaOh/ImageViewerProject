@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Mission: Memory Cache
 class ImageCacheManager {
     static let shared = ImageCacheManager()
     var cache = NSCache<NSString, UIImage>()

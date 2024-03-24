@@ -23,6 +23,7 @@ struct MainView: View {
                 SearchBar(text: $viewModel.searchText, isSearching: $isSearching)
                 ZStack {
                     ScrollView {
+                        // Mission: Grid Image
                         let item = GridItem(.flexible(), spacing: 6, alignment: nil)
                         let columns = Array(repeating: item, count: 3)
                         let images = viewModel.displayedImages
@@ -31,7 +32,7 @@ struct MainView: View {
                             ForEach(images, id: \.id) { image in
                                 ImageCell(image: image)
                                     .onAppear {
-                                        viewModel.pagingFetch(id: image.id)
+                                        viewModel.pagingFetch(id: image.id) // Mission: infinite scroll
                                     }
                             }
                         }
@@ -59,6 +60,7 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             TextField("Search by author", text: $text)
+                .textInputAutocapitalization(.words) // Mission: 자동완성 옵션 on
                 .padding(.horizontal)
                 .padding(.vertical, 10)
                 .background(Color(.systemGray6))

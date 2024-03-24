@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Mission: Image + model Info 기반 UI
 struct DetailView: View {
     @StateObject private var imageLoader = ImageLoader()
     var image: PhotoInfo

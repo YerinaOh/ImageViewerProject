@@ -40,7 +40,7 @@ class MainViewModel: ObservableObject {
         bag.removeAll()
     }
     
-    // Filtered images based on search text    
+    // Mission: Author 기반 검색(이미 받아온 List내에서 검색)
     public func fetchImages(for searchText: String) {
         if searchText.isEmpty {
             displayedImages = images
