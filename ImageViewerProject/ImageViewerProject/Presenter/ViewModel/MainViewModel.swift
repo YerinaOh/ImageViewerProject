@@ -39,7 +39,10 @@ class MainViewModel: ObservableObject {
     deinit {
         bag.removeAll()
     }
-    
+}
+
+// MARK: fetch data
+extension MainViewModel {
     /// list load
     public func getList() {
         isLoading = true
@@ -61,13 +64,16 @@ class MainViewModel: ObservableObject {
     /// - Parameter id: scroll된 cell의 id
     public func pagingFetch(id: String) {
         guard let index = displayedImages.firstIndex(where: { $0.id == id }) else { return }
-
+        
         if index == displayedImages.count - 1 {
             page += 1
             getList()
         }
     }
-    
+}
+
+// MARK: Binding
+extension MainViewModel {
     private func bindInputs() {
         // server api load subject
         getServerListSubject
