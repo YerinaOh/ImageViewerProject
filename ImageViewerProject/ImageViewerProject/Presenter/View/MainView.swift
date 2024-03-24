@@ -19,11 +19,25 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-             VStack {
-                 SearchBar(text: $viewModel.searchText, isSearching: $isSearching)
-                 ZStack {
-                     ImageList(images: viewModel.displayedImages)
-                     if viewModel.isLoading {
+            VStack {
+                SearchBar(text: $viewModel.searchText, isSearching: $isSearching)
+                ZStack {
+                    ScrollView {
+                        let item = GridItem(.flexible(), spacing: 6, alignment: nil)
+                        let columns = Array(repeating: item, count: 3)
+                        let images = viewModel.displayedImages
+                        
+                        LazyVGrid(columns: columns) {
+                            ForEach(images, id: \.id) { image in
+                                ImageCell(image: image)
+                                    .onAppear {
+                                        viewModel.pagingFetch(id: image.id)
+                                    }
+                            }
+                        }
+                    }
+                    .padding()
+                    if viewModel.isLoading {
                          ProgressView("Loading...")
                              .progressViewStyle(CircularProgressViewStyle())
                      }
@@ -35,23 +49,6 @@ struct MainView: View {
              // 이미지를 load 한다.
              viewModel.getList()
          }
-    }
-}
-
-struct ImageList: View {
-    var images: [PhotoInfo]
-    
-    var body: some View {
-        ScrollView {
-            let item = GridItem(.flexible(), spacing: 6, alignment: nil)
-            let columns = Array(repeating: item, count: 3)
-            LazyVGrid(columns: columns) {
-                ForEach(images, id: \.id) { image in
-                    ImageCell(image: image)
-                }
-            }
-        }
-        .padding()
     }
 }
 
@@ -68,7 +65,6 @@ struct SearchBar: View {
                 .cornerRadius(8)
                 .onChange(of: text) { _ in
                     isSearching = !text.isEmpty
-                    
                 }
             
             if isSearching {

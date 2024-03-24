@@ -14,7 +14,7 @@ final class ImageAPIRepository: RepositoryImpl {
     // API 요청을 보내는 함수
     static func fetchData(page: Int) -> AnyPublisher<[PhotoInfo], NetworkError> {
         // API 요청을 보낼 URL 설정
-        let urlString = "https://picsum.photos/v2/list?page=\(page)&limit=100"
+        let urlString = "https://picsum.photos/v2/list?page=\(page)&limit=30"
         
         guard let url = URL(string: urlString) else {
             return Fail(error: .parsingError).eraseToAnyPublisher()

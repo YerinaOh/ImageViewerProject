@@ -17,6 +17,7 @@ class MainViewModel: ObservableObject {
     // values
     private var bag = Set<AnyCancellable>()
     private var images: [PhotoInfo] = []
+    private var page: Int = 1
     
     // binding datas
     @Published var displayedImages: [PhotoInfo] = []
@@ -53,11 +54,21 @@ class MainViewModel: ObservableObject {
         self.getServerListSubject.send()
     }
     
+    public func pagingFetch(id: String) {
+        // 현재 보여진 image의 index 값을 구하기
+        guard let index = displayedImages.firstIndex(where: { $0.id == id }) else { return }
+        // 해당 index가 마지막 index라면 데이터 추가
+        if index == displayedImages.count - 1 {
+            page += 1
+            getList()
+        }
+    }
+    
     private func bindInputs() {
         
         getServerListSubject
             .flatMap {
-                ImageAPIRepository.fetchData(page: 0)
+                ImageAPIRepository.fetchData(page: self.page)
                     .catch { [weak self] error -> Empty<[PhotoInfo], Never> in
                         self?.isLoading = false
                         self?.errorSubject.send(error)
@@ -67,7 +78,7 @@ class MainViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { result in
                 self.isLoading = false
-                self.images = result
+                self.images += result
                 self.fetchImages(for: "")
             })
             .store(in: &bag)
