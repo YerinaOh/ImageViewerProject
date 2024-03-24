@@ -17,4 +17,3 @@ final class DIContainer {
         return MainView(viewModel: MainViewModel())
     }
 }
-

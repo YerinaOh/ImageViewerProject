@@ -77,7 +77,7 @@ extension MainViewModel {
         if searchText.isEmpty {
             return []
         }
-        return Array(Set(displayedImages.map { $0.author } )).sorted()
+        return Array(Set(displayedImages.map { $0.author })).sorted()
     }
 }
 

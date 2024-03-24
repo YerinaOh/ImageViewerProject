@@ -21,7 +21,7 @@ struct MainView: View {
         NavigationView {
             VStack {
                 SearchBar(text: $viewModel.searchText, isSearching: $isSearching)
-                if isSearching, (viewModel.displayedImages.count != viewModel.images.count) { // Mission: 자동완성 옵션 on
+                if isSearching && (viewModel.displayedImages.count != viewModel.images.count) { // Mission: 자동완성 옵션 on
                     KeywordScrollView(keywords: viewModel.getAutoCompleteKeyword()) { keyword in
                         viewModel.searchText = keyword
                     }
@@ -86,10 +86,10 @@ struct SearchBar: View {
                 Button(action: {
                     text = ""
                     isSearching = false
-                }) {
+                }, label: {
                     Text("Cancel")
                         .foregroundColor(.blue)
-                }
+                })
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
             }
@@ -108,13 +108,13 @@ struct KeywordScrollView: View {
                 ForEach(keywords, id: \.self) { keyword in
                     Button(action: {
                         onKeywordTapped(keyword)
-                    }) {
+                    }, label: {
                         Text(keyword)
                             .padding()
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    }
+                    })
                 }
             }
             .padding()
