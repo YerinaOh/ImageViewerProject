@@ -20,7 +20,6 @@ struct DetailView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity, maxHeight: 300)
                 .padding()
-            
             Text(image.author)
                 .font(.title)
                 .fontWeight(.bold)

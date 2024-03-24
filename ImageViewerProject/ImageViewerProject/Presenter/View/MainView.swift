@@ -22,22 +22,31 @@ struct MainView: View {
             VStack {
                 SearchBar(text: $viewModel.searchText, isSearching: $isSearching)
                 ZStack {
-                    ScrollView {
-                        // Mission: Grid Image
-                        let item = GridItem(.flexible(), spacing: 6, alignment: nil)
-                        let columns = Array(repeating: item, count: 3)
-                        let images = viewModel.displayedImages
-                        
-                        LazyVGrid(columns: columns) {
-                            ForEach(images, id: \.id) { image in
-                                ImageCell(image: image)
-                                    .onAppear {
-                                        viewModel.pagingFetch(id: image.id) // Mission: infinite scroll
-                                    }
+                    ScrollViewReader { reader in
+                        ScrollView {
+                            // Mission: Grid Image
+                            let item = GridItem(.flexible(), spacing: 6, alignment: nil)
+                            let columns = Array(repeating: item, count: 3)
+                            let images = viewModel.displayedImages
+                            
+                            LazyVGrid(columns: columns) {
+                                ForEach(images, id: \.id) { image in
+                                    ImageCell(image: image)
+                                        .onAppear {
+                                            if !isSearching {
+                                                viewModel.pagingFetch(id: image.id) // Mission: infinite scroll
+                                            }
+                                        }
+                                }
+                            }.onChange(of: viewModel.searchText) { _ in
+                                withAnimation {
+                                    // 검색어가 변경될 때마다 ScrollView를 맨 위로 스크롤
+                                    reader.scrollTo(viewModel.displayedImages.first?.id ?? "0")
+                                }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                     if viewModel.isLoading {
                          ProgressView("Loading...")
                              .progressViewStyle(CircularProgressViewStyle())
@@ -47,7 +56,6 @@ struct MainView: View {
              .navigationTitle("Image Gallery")
          }
          .onAppear {
-             // 이미지를 load 한다.
              viewModel.getList()
          }
     }

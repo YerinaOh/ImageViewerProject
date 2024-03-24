@@ -9,11 +9,14 @@ import Foundation
 import Combine
 import UIKit
 
+/// Server Util: image를 request하고 image 변화를 cell에 binding 하기 위한 observedObject
 class ImageLoader: ObservableObject {
     
     @Published var image: UIImage = UIImage(named: "placeholder")!
     private var cancellable: AnyCancellable?
     
+    /// image url load function
+    /// - Parameter fromURL: image download image
     func loadImage(fromURL: String) {
         
         guard let url = URL(string: fromURL) else {

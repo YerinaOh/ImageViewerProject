@@ -11,17 +11,17 @@ import Combine
 
 class MainViewModel: ObservableObject {
     // subjects
-    private let searchTextSubject = PassthroughSubject<String, Never>()
+    private let searchTextSubject = PassthroughSubject<String, Never>() // search text 변화감지를 위한 trigger
     private let getServerListSubject = PassthroughSubject<Void, Never>() // server load trigger
     private let errorSubject = PassthroughSubject<NetworkError, Never>() // 에러 응답
     // values
-    private var bag = Set<AnyCancellable>()
-    private var images: [PhotoInfo] = []
-    private var page: Int = 1
+    private var bag = Set<AnyCancellable>() // dispose bag
+    private var images: [PhotoInfo] = [] // api loaded image list
+    private var page: Int = 1 // 현재까지 load된 page수
     
     // binding datas
-    @Published var displayedImages: [PhotoInfo] = []
-    @Published var searchText: String = "" { // 검색어를 저장하는 프로퍼티
+    @Published var displayedImages: [PhotoInfo] = [] // view에서 노출할 image data list
+    @Published var searchText: String = "" { // 검색어
         didSet {
             // 검색어가 변경될 때마다 subject에 send
             searchTextSubject.send(searchText)
@@ -40,7 +40,15 @@ class MainViewModel: ObservableObject {
         bag.removeAll()
     }
     
+    /// list load
+    public func getList() {
+        isLoading = true
+        self.getServerListSubject.send()
+    }
+    
     // Mission: Author 기반 검색(이미 받아온 List내에서 검색)
+    /// 검색어에 따른 image list 로직
+    /// - Parameter searchText: 검색어
     public func fetchImages(for searchText: String) {
         if searchText.isEmpty {
             displayedImages = images
@@ -49,15 +57,11 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    public func getList() {
-        isLoading = true
-        self.getServerListSubject.send()
-    }
-    
+    /// 마지막 id에서 다음 page load
+    /// - Parameter id: scroll된 cell의 id
     public func pagingFetch(id: String) {
-        // 현재 보여진 image의 index 값을 구하기
         guard let index = displayedImages.firstIndex(where: { $0.id == id }) else { return }
-        // 해당 index가 마지막 index라면 데이터 추가
+
         if index == displayedImages.count - 1 {
             page += 1
             getList()
@@ -65,7 +69,7 @@ class MainViewModel: ObservableObject {
     }
     
     private func bindInputs() {
-        
+        // server api load subject
         getServerListSubject
             .flatMap {
                 ImageAPIRepository.fetchData(page: self.page)
@@ -82,7 +86,7 @@ class MainViewModel: ObservableObject {
                 self.fetchImages(for: "")
             })
             .store(in: &bag)
-        
+        // search text change subject
         searchTextSubject
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] searchText in
@@ -92,7 +96,7 @@ class MainViewModel: ObservableObject {
     }
     
     private func bindOutputs() {
-        // error handling
+        // error handling subject
         errorSubject
             .map { _ in true }
             .assign(to: \.isErrorAlert, on: self)

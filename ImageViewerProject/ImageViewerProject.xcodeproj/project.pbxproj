@@ -21,7 +21,6 @@
 		04A998232BAEFD15008086F7 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998222BAEFD15008086F7 /* DIContainer.swift */; };
 		04A998262BAF08B2008086F7 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998252BAF08B2008086F7 /* ImageLoader.swift */; };
 		04A998292BAF0C21008086F7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998282BAF0C21008086F7 /* NetworkError.swift */; };
-		04A9982B2BAF1588008086F7 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982A2BAF1588008086F7 /* APILoader.swift */; };
 		04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */; };
 		04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */; };
 		04ED61962BAF2D9100CB64F5 /* ImageAPITestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED61952BAF2D9100CB64F5 /* ImageAPITestRepository.swift */; };
@@ -63,7 +62,6 @@
 		04A998222BAEFD15008086F7 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		04A998252BAF08B2008086F7 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		04A998282BAF0C21008086F7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		04A9982A2BAF1588008086F7 /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
 		04A9982D2BAF1D7E008086F7 /* RepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImpl.swift; sourceTree = "<group>"; };
 		04A998302BAF1D99008086F7 /* ImageAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIRepository.swift; sourceTree = "<group>"; };
 		04A998332BAF22AE008086F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 			children = (
 				04A998282BAF0C21008086F7 /* NetworkError.swift */,
 				04A998252BAF08B2008086F7 /* ImageLoader.swift */,
-				04A9982A2BAF1588008086F7 /* APILoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -393,7 +390,6 @@
 				04A9982E2BAF1D7E008086F7 /* RepositoryImpl.swift in Sources */,
 				04A9981D2BAEDCAD008086F7 /* DetailView.swift in Sources */,
 				04A998312BAF1D99008086F7 /* ImageAPIRepository.swift in Sources */,
-				04A9982B2BAF1588008086F7 /* APILoader.swift in Sources */,
 				04A997EC2BAEBDFF008086F7 /* ImageViewerProjectApp.swift in Sources */,
 				04A998212BAEE468008086F7 /* MainViewModel.swift in Sources */,
 			);
