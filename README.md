@@ -1,5 +1,5 @@
 # ImageViewerProject
-sk 채용과제 이미지 load 프로젝트
+Combine + 이미지 load Proj
 
 ## 1. 📋 Project Summary
 ### Goal
@@ -10,12 +10,6 @@ sk 채용과제 이미지 load 프로젝트
 5. 자동완성 기능
 6. Memory Cache or Disk Cache
 7. Image + model Info 기반 UI
-
-### 제한사항
-1. Open Source 사용 불가 (RxSwift만 사용 가능)
-2. RxSwift or Combine 사용 필수
-3. UIKit Native(RxCocoa사용불가) or SwiftUI 자유선택 (SwiftUI 가점)
-4. MVVM (Test Code 가점)
 
 
 ### Requirements
